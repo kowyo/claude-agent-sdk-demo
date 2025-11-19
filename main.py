@@ -15,17 +15,9 @@ load_dotenv()
 
 async def main() -> None:
     options = ClaudeAgentOptions(
-        model="claude-haiku-4-5",
         allowed_tools=["Read", "Write", "Bash"],
         permission_mode="acceptEdits",
-        cwd=".",
-        env={
-            "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
-            "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-haiku-4-5",
-            "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-haiku-4-5",
-            "ANTHROPIC_MODEL": "claude-haiku-4-5",
-            "CLAUDE_CODE_SUBAGENT_MODEL": "claude-haiku-4-5",
-        },
+        cwd="."
     )
 
     async with ClaudeSDKClient(options=options) as client:
